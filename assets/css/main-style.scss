@@ -1,0 +1,166 @@
+@font-face {
+    font-family: mainFont;
+    src: url(/assets/fonts/Burgela.ttf);
+}
+
+@font-face {
+    font-family: body-Font;
+    src: url(/assets/fonts/Ryo-Gothic-PlusN-L.ttf);
+}
+
+.main-content{
+    padding: 50px 100px;
+}
+
+
+
+.titleFont{
+    font-family: mainFont;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    color: #17A6B6;
+    letter-spacing: 1px;
+}
+
+.header{
+    display: flex;
+    align-items:first baseline;
+    gap: 50px;
+    font-family: body-Font;
+    margin-bottom: 30px;
+    h2{
+        color: #17A6B6;
+        font-size: 44px;
+        margin: 0;
+    }
+    span{
+        color: #888;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+.cards-section{
+    .card{
+        background-color: #f3f3f3;
+    }
+    .card-footer{
+        background-color: #f3f3f3;
+        display: flex;
+        justify-content: space-between;
+        span{
+            font-family: body-Font;
+            font-size: 12px;
+        }
+    }
+    img{
+        height: 130px;
+        
+    }
+}
+
+.footer-wrapper{
+    background-color: #17A6B6;        
+    padding: 50px 120px;
+
+    .footer-content{
+        color: white;
+        h4{
+            text-transform: uppercase;
+        }
+        .contact-us-wrapper{
+            
+            .info{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .icons-wrapper{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    span{
+                            font-family: body-Font;
+                            font-size: 14px;
+                    }   
+                }
+            }
+            button{
+                padding: 10px 20px;
+                color: #17A6B6;
+            }
+        
+        }
+
+        .connect-with-us-wrapper{
+            .brand-icons{
+                display: flex;
+                gap: 25px;
+                border-bottom: 1px solid;
+                i{               
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                    font-size: 35px;
+                    color: #17A6B6;
+                    height: 85px; width: 85px;
+                    background-color: white;
+                    border-radius: 50px;
+                    text-align: center; 
+                    padding: 25px;
+                }
+            }
+            .signup{
+                span{
+                    font-size: 30px;
+                    display: flex;
+                    justify-content: center;
+                }
+                input{
+                    font-size: 18px;
+                    box-shadow: none;
+                }
+                button{
+                    background-color: #f3f3f3;
+                    color: #17A6B6;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .about-us-wrapper{
+            background-image: url(/assets/images/bg_about.png);
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: 200px 200px;
+
+            .text-content{
+                width: 250px;
+                ul{
+                    padding-left: 19px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-content{
+        padding: 50px 60px;
+        .card{
+            
+            margin: 20px auto;
+        }
+    }
+    .footer-wrapper{
+        padding: 50px 60px;
+        .connect-with-us-wrapper{
+            margin: 100px 0;
+        }
+    }
+    .header{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
