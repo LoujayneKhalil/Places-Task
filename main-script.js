@@ -3,7 +3,7 @@
 let cardsArr = [
     {
         'id':'0',
-        'title':'egypt Tangabia',
+        'title':'egypt tangabia',
         'description':'Denatibus et magnis dis parturient montes, nascetur ridiculus mus', 
         'img':'./assets/images/01.jpg',
         'comments':'22'
@@ -31,7 +31,7 @@ let cardsArr = [
     },
     {
         'id':'4',
-        'title':'egypt Tangabia',
+        'title':'egypt tangabia',
         'description':'Denatibus et magnis dis parturient montes, nascetur ridiculus mus', 
         'img':'./assets/images/05.jpg',
         'comments':'22'
@@ -59,7 +59,7 @@ let cardsArr = [
     },
     {
         'id':'8',
-        'title':'egypt Tangabia',
+        'title':'egypt tangabia',
         'description':'Denatibus et magnis dis parturient montes, nascetur ridiculus mus', 
         'img':'./assets/images/09.jpg',
         'comments':'22'
@@ -109,5 +109,51 @@ for(var i = 0; i<cardsLength; i++){
         </div>  
     `
     $("#defaultCard").append(placesCards)
+
+    // ---------------------------------------------Pop-up-----------------------------------------------------------------
+        let popUp = `
+            <div class="popup-content">
+                <div class="container popup-container">
+                    <div class="popup-close-btn">
+                        <button class="fa-solid fa-xmark"></button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="${cardsArr[i]['img']}" style="width: 100%;">
+                        </div>
+                        <div class="col-md-7">
+                            <h4 class="pop-up-title">${cardsArr[i]['title']}</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `    
+        $(".pop-up").append(popUp);
+
+        $(".card").on("click",function(){
+            $(".pop-up").css({'display':'block'})
+            $("body").css({'overflow-y':'hidden'})
+        })
+
+        $(".popup-close-btn button").on("click",function(){
+            $(".pop-up").css({'display':'none'})
+            $("body").css({'overflow-y':'visible'})
+        })
+
 }
 
+
+
+
+
+function closePopup(){
+    document.getElementById('PopUp').style.display = 'none';
+    document.body.style.overflowY = 'visible';
+}
+function openPopup(){
+    document.getElementById('PopUp').style.display = 'block';
+    document.body.style.overflowY = 'hidden';
+}

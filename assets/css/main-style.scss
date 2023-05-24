@@ -44,6 +44,13 @@
 .cards-section{
     .card{
         background-color: #f3f3f3;
+        cursor: pointer;
+    }
+    .card:hover{
+        background-color: #e5e5e5;
+        .card-footer{
+            background-color: #e5e5e5;
+        }
     }
     .card-footer{
         background-color: #f3f3f3;
@@ -55,7 +62,7 @@
         }
     }
     img{
-        height: 130px;
+        height: 180px;
         
     }
 }
@@ -141,6 +148,48 @@
                 }
             }
         }
+    }
+}
+
+.pop-up{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position:fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    .popup-content{
+        margin: 100px;
+        padding: 0 20px;
+        height: 500px;
+        background-color: white;
+        position: relative;
+        margin-top: 150px;
+    }
+
+    .popup-close-btn{
+        display: flex;
+        justify-content: flex-end;
+
+        button{
+            margin: 20px 0;
+            height: 35px; width: 35px;
+            padding: 3px;
+            font-size: 30px; 
+            color: white;
+            border: none;
+            background-color: #080808;        
+
+        }
+    }
+    .pop-up-title{
+        font-family: mainFont;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 20px;
+        color: #17A6B6;
+        letter-spacing: 1px;
     }
 }
 
