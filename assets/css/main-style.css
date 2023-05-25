@@ -163,7 +163,7 @@
   border: none;
   background-color: #080808;
 }
-.pop-up .pop-up-title {
+.pop-up #pop-up-title {
   font-family: mainFont;
   text-transform: uppercase;
   font-weight: 700;
