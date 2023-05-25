@@ -95,7 +95,7 @@ for(var i = 0; i<cardsLength; i++){
 
     let placesCards = `
         <div class="col-md-3 mb-4">
-            <div class="card rounded-0 border-0 text-center" >
+            <div class="card rounded-0 border-0 text-center" data-index="${i}">
                 <img src="${cardsArr[i]['img']}">
                 <div class="card-body">
                     <h6 class="card-title titleFont ">${cardsArr[i]['title']}</h6>
@@ -109,41 +109,47 @@ for(var i = 0; i<cardsLength; i++){
         </div>  
     `
     $("#defaultCard").append(placesCards)
-
-    // ---------------------------------------------Pop-up-----------------------------------------------------------------
-        let popUp = `
-            <div class="popup-content">
-                <div class="container popup-container">
-                    <div class="popup-close-btn">
-                        <button class="fa-solid fa-xmark"></button>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <img src="${cardsArr[i]['img']}" style="width: 100%;">
-                        </div>
-                        <div class="col-md-7">
-                            <h4 class="pop-up-title">${cardsArr[i]['title']}</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `    
-        $(".pop-up").append(popUp);
-
-        $(".card").on("click",function(){
-            $(".pop-up").css({'display':'block'})
-            $("body").css({'overflow-y':'hidden'})
-        })
-
-        $(".popup-close-btn button").on("click",function(){
-            $(".pop-up").css({'display':'none'})
-            $("body").css({'overflow-y':'visible'})
-        })
-
 }
+// debugger;
+ // ---------------------------------------------Pop-up-----------------------------------------------------------------
+
+let popUp = `
+ <div class="popup-content">
+     <div class="container popup-container">
+         <div class="popup-close-btn">
+             <button class="fa-solid fa-xmark"></button>
+         </div>
+         <div class="row">
+             <div class="col-md-5">
+                 <img src="asd" id="popup-image" style="width: 100%;">
+             </div>
+             <div class="col-md-7">
+                 <h4 id="pop-up-title"></h4>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quidem beatae repellat libero in corporis amet eaque vitae itaque maxime. Nesciunt saepe temporibus repellat cum similique nostrum impedit? Pariatur, quibusdam?</p>
+             </div>
+         </div>
+     </div>
+ </div>
+`    
+
+ 
+$(".pop-up").html(popUp);
+
+
+$(".card").on("click",function(){
+
+    let index = parseInt($(this).data('index'));
+
+    openPopup(index);
+})
+
+$(".popup-close-btn button").on("click",function(){
+    closePopup();
+})
+
+
 
 
 
@@ -153,7 +159,9 @@ function closePopup(){
     document.getElementById('PopUp').style.display = 'none';
     document.body.style.overflowY = 'visible';
 }
-function openPopup(){
+function openPopup(index){
     document.getElementById('PopUp').style.display = 'block';
+    document.getElementById("popup-image").src = cardsArr[index]["img"];
+    document.getElementById("pop-up-title").innerHTML = cardsArr[index]["title"];
     document.body.style.overflowY = 'hidden';
 }
